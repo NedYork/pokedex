@@ -6,10 +6,9 @@ var PokemonDetail = React.createClass({
   getInitialState: function () {
     return { pokemon: null };
   },
-  
+
   componentDidMount: function () {
     PokemonStore.addListener(this.getStateFromStore);
-    // this.setState({ pokemon: this.getStateFromStore() });
     ApiUtil.fetchPokemon(parseInt(this.props.routeParams.id));
   },
 
@@ -18,9 +17,8 @@ var PokemonDetail = React.createClass({
   },
 
   getStateFromStore: function () {
-    var id = parseInt(this.props.params.id);
-    this.setState({ pokemon: PokemonStore.find(id) });
-    // return (PokemonStore.find(id));
+    this.setState({ pokemon: PokemonStore.detailPokemon() });
+    debugger
   },
 
   render: function () {
@@ -41,9 +39,13 @@ var PokemonDetail = React.createClass({
       );
     }
 
+
     return (
-      <div className="pokemon-detail-pane">
-        {pokemonDetail}
+      <div>
+        <div className="pokemon-detail-pane">
+          {pokemonDetail}
+        </div>
+        {this.props.children}
       </div>
     );
   }

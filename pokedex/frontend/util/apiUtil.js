@@ -27,6 +27,34 @@ var ApiUtil = {
         console.log(data);
       }
     });
+  },
+
+  fetchAllToys: function (pokemonId) {
+    $.ajax({
+      url: 'api/pokemon' + pokemonId + "/toys",
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        ToyActions.receiveAllToys(data);
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
+  },
+
+  fetchToy: function (pokemonId, toyId) {
+    $.ajax({
+      url: 'api/pokemon' + pokemonId + "/toys/" + toyId,
+      type: 'GET',
+      dataType: 'json',
+      success: function (data) {
+        ToyActions.receiveSingleToy(data);
+      },
+      error: function (data) {
+        console.log(data);
+      }
+    });
   }
 };
 
