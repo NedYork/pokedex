@@ -4,7 +4,8 @@ var React = require('react'),
     App = require('./components/app'),
     Router = require('react-router').Router,
     Route = require('react-router').Route,
-    IndexRoute = require('react-router').IndexRoute;
+    IndexRoute = require('react-router').IndexRoute,
+    PokemonDetail = require('./components/pokemonDetail');
 
 var PokemonStore = require('./stores/pokemon');
 var PokemonsIndex = require('./components/pokemonsIndex');
@@ -15,7 +16,7 @@ window.PokemonStore = PokemonStore;
 var router = (
   <Router>
     <Route path='/' component={App}>
-
+      <Route path='pokemon/:id' component={PokemonDetail}></Route>
     </Route>
   </Router>
 );
