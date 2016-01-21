@@ -1,4 +1,5 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
+var PokemonConstants = require('../constants/pokemonConstants');
 
 var PokemonActions = {
   receiveAllPokemons: function (pokemons) {

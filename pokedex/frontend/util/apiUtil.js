@@ -1,3 +1,5 @@
+var PokemonActions = require('../actions/pokemonActions');
+
 var ApiUtil = {
   fetchAllPokemons: function () {
     $.ajax({
@@ -14,4 +16,4 @@ var ApiUtil = {
   }
 };
 
-module.exports = ApiUtil.fetchAllPokemons;
+module.exports = ApiUtil;
