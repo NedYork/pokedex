@@ -3,14 +3,15 @@ var React = require('react'),
     ApiUtil = require('./util/apiUtil');
 
 var PokemonStore = require('./stores/pokemon');
+var PokemonsIndex = require('./components/pokemonsIndex');
+
 window.ApiUtil = ApiUtil;
 window.PokemonStore = PokemonStore;
 
 document.addEventListener("DOMContentLoaded", function() {
   ReactDOM.render(
     <div>
-      {console.log("API UTIL: " + ApiUtil.fetchAllPokemons())}
-      {console.log("POKEMON STORE: " + PokemonStore.all())}
+      <PokemonsIndex />
     </div>,
     document.getElementById('root'));
 });
